@@ -20,6 +20,7 @@ that an agent performs on a draft before the agent sends the draft.
 ```
 agent-speak-readability/
 ├── README.md                      this file
+├── CHANGELOG.md                   version history
 ├── LICENSE                        Apache License 2.0
 ├── SKILL.md                       skill entry point: 9 cross-language rules + the pre-send check
 ├── AGENTS.md                      repository-wide constraints for agents
@@ -93,6 +94,12 @@ default voice of the model within one or two turns.
 
 So this skill states the requirement as "perform these ten steps before you
 send". This skill does not state the requirement as "write more clearly".
+
+## Version
+
+The current version is 0.1.0. The version lives in the `version` field of
+`SKILL.md`, and `CHANGELOG.md` records what each version changed. The rules
+and the check work at 0.1.0, and the interface may still change.
 
 ## License
 

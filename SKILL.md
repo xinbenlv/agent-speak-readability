@@ -1,6 +1,8 @@
 ---
 name: agent-speak-readability
 description: Rules and a mandatory pre-send check that make an agent's natural-language output readable to a human reader. Load this skill before you write any prose a human will read - a status line, a progress report, an explanation, a plan, a summary, a chat reply. Also load it when the user says your writing is hard to understand, vague, telegraphic, clipped, full of jargon, metaphors or invented words, or when the user says 看不懂, 说人话, 你的中文很难懂, 把话说完整, 不知道你在说什么. Cross-language rules live in this file. Load lang/zh/PRINCIPLES.md for Chinese output and lang/en/PRINCIPLES.md for English output.
+version: 0.1.0
+license: Apache-2.0
 ---
 
 # agent-speak-readability

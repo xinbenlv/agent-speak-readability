@@ -23,6 +23,7 @@
 ```
 agent-speak-readability/
 ├── README.md                      本文件
+├── LICENSE                        Apache License 2.0
 ├── SKILL.md                       技能入口：九条通用原则 + 发送前检查
 ├── AGENTS.md                      本仓库的全局约束（从全局 CLAUDE.md 拷贝并删减）
 ├── CLAUDE.md                      指向 AGENTS.md 的符号链接
@@ -53,7 +54,13 @@ agent-speak-readability/
 用户想安装本仓库的时候，用户自己执行下面这一条命令。
 
 ```bash
-ln -s /Users/zzn/ws/xinbenlv/agent-speak-readability ~/.claude/skills/agent-speak-readability
+git clone https://github.com/xinbenlv/agent-speak-readability.git ~/.claude/skills/agent-speak-readability
+```
+
+用户已经把本仓库克隆到别处的时候，用户改用符号链接。
+
+```bash
+ln -s <本仓库在本机的绝对路径> ~/.claude/skills/agent-speak-readability
 ```
 
 用户还可以读 `docs/suggested-claude-md-section.md`。
@@ -76,3 +83,8 @@ ln -s /Users/zzn/ws/xinbenlv/agent-speak-readability ~/.claude/skills/agent-spea
 智能体读完了上述配置文件。用户又在提示词里重申了一遍要求。智能体在紧接着的一条回复里仍然违反了七次。
 同一个配置文件里的动作约束（例如「没有用户要求就不许提交」）却保持了好几个小时。
 所以本仓库把要求写成了「发送之前做完这几个动作」，本仓库没有把要求写成「写得清楚一点」。
+
+## 许可证
+
+本仓库采用 Apache License 2.0，许可证全文在 `LICENSE` 文件里。
+Copyright 2026 Zainan Victor Zhou.

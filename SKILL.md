@@ -29,6 +29,10 @@ on your draft before you send the draft.
 
 If you write two languages in one reply, run the check once for each language.
 
+Every file in this skill is written in English. The examples inside a language
+file stay in the language of that file, because those examples are the thing
+being taught.
+
 ## 3. Cross-language rules
 
 ### R1. Fill every slot of the action. This rule is the master rule.

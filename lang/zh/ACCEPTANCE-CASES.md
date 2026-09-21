@@ -1,7 +1,10 @@
-# 中文验收用例（用户亲手写的四条修改意见）
+# Chinese acceptance cases
 
-下面这一段是用户亲手写下的原文，本文件逐字保留，任何人都不要改写上述原文。
-每一行的格式是：`原句` → `模型自己改出来的句子` → `用户真正想要的句子`。
+The user wrote the block below by hand. This file keeps the block character
+for character. Never rewrite anything inside the block.
+
+The format of each line is: `original` → `the fix the model produced` → `what
+the user actually wanted`.
 
 ```
 先写扫描脚本。       → 我先写扫描脚本。          → 让我先来写一份扫描脚本。
@@ -15,44 +18,56 @@
                                                    验证脚本中得到成功验证。
 ```
 
-上述四条修改意见是中文输出的验收标准。
-我改动这个技能以后，我先拿改动后的技能对照上述四条修改意见检查一遍。
+Those four corrections are the acceptance standard for Chinese output. Check
+every change to this skill against the four corrections first.
 
-## 每一条修改意见教的是哪一件事
+## What each correction teaches
 
-### 第一条：量词不能省
+### Case 1: never drop the measure word
 
-模型改出来的句子只补上了主语「我」，模型漏掉了量词「一份」。
-用户想要的句子同时补上了主语、「让我……来……」的形式和量词「一份」。
-对应的原则：`PRINCIPLES.md` 里的 Z1、Z2、Z3。
+The fix from the model added only the subject 「我」. The fix dropped the
+measure word 「一份」. The sentence the user wanted carries the subject, the
+「让我……来……」 form and the measure word 「一份」 together.
 
-### 第二条：指示代词不能指向前一句话
+Related rules: Z1, Z2 and Z3 in `PRINCIPLES.md`.
 
-模型改出来的句子补上了主语，可是模型又写进了一个「这」。
-上述这一个「这」指向前一句话里的名词，正是原则 Z4 禁止的写法。
-模型一边声称自己在修一条规则，一边违反了另一条规则。
-用户想要的句子用「上述」代替了「这」。
-对应的原则：Z4。
+### Case 2: a demonstrative must not reach back to the previous sentence
 
-### 第三条：压缩说法要拆开，标识符要带类别词
+The fix from the model added the subject, and then the fix wrote a new 「这」
+into the sentence. That 「这」 points at a noun in the previous sentence, which
+is exactly what rule Z4 forbids. The model claimed to repair one rule while it
+broke another rule. The sentence the user wanted uses 「上述」 in place of
+「这」.
 
-模型改出来的句子保留了「没轮到」这一个口语压缩说法。
-模型还把 `ivy` 和 `joseph` 当成不带类别词的词写出来。
-模型没有说明 `ivy` 和 `joseph` 这两个词是什么东西。
-用户想要的句子写出了对象（`名字`、`任务`）、关系（`对应的`）、位置（`在我们的队列任务里`）和状态（`仍然在排队`）。
-用户想要的句子还把压缩说法拆成了字面描述（`还未排到队首`）。
-对应的原则：通用原则 R1、R4、R8，以及中文原则 Z5。
+Related rule: Z4.
 
-### 第四条：最重要的一条，动作的对象不能省
+### Case 3: unpack the compression, and name the category of an identifier
 
-模型改出来的句子补上了动作的执行者（`验证脚本`），模型仍然没有写出被验证的东西。
-用户写的 `(?哪个被测试的对象及其行为)` 是一个明确的空位。
-上述这一个空位要求我填进被测对象和被测行为。
-补上执行者不等于补全了动作成分，这就是通用原则 R1 是主规则的原因。
-对应的原则：通用原则 R1。
+The fix from the model kept the colloquial compression 「没轮到」. The fix also
+left `ivy` and `joseph` as bare tokens with no category word. The fix never
+said what kind of thing `ivy` and `joseph` are.
 
-## 一条结论
+The sentence the user wanted names the objects (`名字`, `任务`), the relation
+(`对应的`), the location (`在我们的队列任务里`) and the state
+(`仍然在排队`). That sentence also unpacks the compression into a literal
+description (`还未排到队首`).
 
-四次修改里，模型每一次都只补上了主语。
-补主语是最容易做的一步，补主语也是最不够的一步。
-我每一次检查的时候，我先问动词「对什么做的」，我再问动词「谁做的」。
+Related rules: R1, R4 and R8 across languages, and Z5 in Chinese.
+
+### Case 4: the most important one. Never drop the object of the action
+
+The fix from the model named the actor (`验证脚本`) and still left out the
+thing that was verified. The user wrote `(?哪个被测试的对象及其行为)` as an
+explicit empty slot. That slot demands the tested object and the tested
+behaviour.
+
+Naming the actor does not complete the action. That is the reason R1 is the
+master rule.
+
+Related rule: R1.
+
+## One conclusion
+
+The model added only the subject in all four attempts. Adding the subject is
+the easiest step to take, and adding the subject is also the least sufficient
+step. Ask the verb "to what?" before you ask the verb "by whom?".

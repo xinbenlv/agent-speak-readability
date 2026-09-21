@@ -1,26 +1,63 @@
-（本文件从全局 `~/.claude/CLAUDE.md` 拷贝而来，并且按本仓库的实际情况删减过。）
+# AGENTS.md
 
-## 读写 AGENTS.md 的原则
-1. 什么内容放AGENTS.md里面：注意到主流的LLM Harnes （例如Claude Code和ChatGPT Codex）都会把 AGENTS.md 在每次会话无条件读进 context，所以这个文件里应当只放会改变模型在任意一次会话里行为的全局约束;条件触发的规则、解释和参考资料都该待在各自相关的文件旁边,在真正需要的时刻才被读到。
+These rules come from the repository owner's global agent configuration. The
+rules are copied here and trimmed to what this repository actually needs. The
+working language of this repository is English, so the rules are translated.
 
-2. 修改必须请用户同意：无论是全局 AGENTS.md （及 CLAUDE.md） 文件还是repo里面的 AGENTS.md（及 CLAUDE.md），请不要轻易修改，如果试图修改或者值得修改，请务必请用户明确手动批准。
+## Working language
 
-## 与用户交流的语言的原则
-- 本仓库的 `SKILL.md` 就是这一节的完整版本，所以我不在本文件里重复规则。
-- 我写任何给人读的自然语言之前，我先读本仓库的 `SKILL.md`。
-- 我写中文的时候，我再读 `lang/zh/PRINCIPLES.md`；我写英文的时候，我再读 `lang/en/PRINCIPLES.md`。
-- 我发出这一段文字之前，我先执行 `SKILL.md` 第 4 节的发送前检查。
-- 本仓库里的每一句中文和每一句英文都必须通过上述发送前检查。写一份可读性技能却写出不可读的句子，这件事本身就自相矛盾。
+- The working language of this repository is English. Write every file, every
+  commit message and every issue in English.
+- The Chinese examples inside `lang/zh/` stay in Chinese. Those examples are
+  the subject matter of the file, not prose about the subject matter.
+- The Chinese trigger phrases inside the `description` field of `SKILL.md`
+  stay in Chinese. Those phrases are match data for the skill loader.
 
-## 按需加载 Skill 的原则
-- 用户指定 skill 时才使用 skill；否则只加载当前动作所需的 skill，不因关键词、仓库或文档链接自动串联。
+## How to write anything a human reads
 
-## 读写 README.md 的原则
-- 命名：每个文件夹里面的 README (例如 README.md 或者其他后缀都应该被视为README)，请遵从本级或者上级的命名习惯。
-- 读取：需要访问一个文件夹的时候默认先读 其文件夹的 README，再读其他内容。
-- 可读性：README 必须维持可读性，包括长度不能超过 两页，应该用通俗简明的 人类自然语言 辅以必要ASCII / mermaid 等图表以及 dir tree等介绍。预设撰写对象应该是文件夹的使用者和开发者。
-- 更新：当一个目录内的文件特别是代码文件时超过5个时，考虑创建 README；更新某个文件夹里的任何文件的时候，审阅 其同级以及所有上级 README 考虑是否也需要修改；发现 某个文件夹内的代码文件与 README 描述不符的时候，也要考虑修改README 以 符合实际情况。
+- `SKILL.md` in this repository is the full version of this section, so this
+  file does not repeat the rules.
+- Read `SKILL.md` before you write any prose that a human will read.
+- Read `lang/en/PRINCIPLES.md` when you write English. Read
+  `lang/zh/PRINCIPLES.md` when you write Chinese.
+- Run the pre-send check in section 4 of `SKILL.md` before you send the text.
+- Every sentence in this repository must pass that check. A readability skill
+  written in unreadable prose refutes itself.
 
-## 本仓库的专有约束
-- `lang/zh/ACCEPTANCE-CASES.md` 里的第一个代码块是用户亲手写的四条修改意见。任何人都不要改写上述代码块里的字。
-- 我不把本仓库安装到 `~/.claude/skills/` 或者 `~/.agents/skills/`，安装动作由用户自己执行。
+## Rules for AGENTS.md itself
+
+1. What belongs in this file: the main agent harnesses read `AGENTS.md` into
+   the context of every session without any condition. So this file holds only
+   the constraints that change agent behaviour in any session. Conditional
+   rules, explanations and reference material belong beside the files they
+   describe, where an agent reads them at the moment of need.
+2. Changes need the user's approval. Never change a global `AGENTS.md` or
+   `CLAUDE.md`, and never change this file, without explicit manual approval
+   from the user.
+
+## Rules for README files
+
+- Naming: follow the naming habit of the directory or of the parent directory.
+- Reading: read the README of a directory before you read anything else in
+  that directory.
+- Readability: keep a README under two pages. Use plain human language. Add a
+  directory tree, and add an ASCII or Mermaid diagram when a diagram helps.
+  Write for both the users and the developers of the directory.
+- Updating: consider a README once a directory holds more than about five
+  files. When you change any file in a directory, review the README of that
+  directory and of every parent directory. When the code and the README
+  disagree, correct the README.
+
+## Loading skills
+
+Use a skill when the user names the skill. Otherwise load only the skill that
+the current action needs. Do not chain skills because of a keyword, a
+repository name or a link in a document.
+
+## Constraints specific to this repository
+
+- The first code block in `lang/zh/ACCEPTANCE-CASES.md` holds four corrections
+  that the user wrote by hand. Keep that block exactly as it is, character for
+  character.
+- Do not install this repository into `~/.claude/skills/` or
+  `~/.agents/skills/`. The user runs the install command.

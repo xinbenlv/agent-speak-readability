@@ -1,57 +1,62 @@
-# 中文输出的附加原则
+# Additional rules for Chinese output
 
-我写中文给人读的时候，我先执行上一层 `SKILL.md` 里的九条通用原则。
-我再执行本文件里的八条中文附加原则。
-我发送这一段中文之前，我执行本文件末尾的中文附加检查步骤。
+Apply the nine cross-language rules in `../../SKILL.md` first. Then apply the
+eight rules below. Then run the extra check steps at the end of this file.
 
-## Z1 每一句话都写出主语，包括「我」
+The rules are written in English. The examples stay in Chinese, because the
+examples are the thing being taught.
 
-中文允许省略主语，所以省略主语是我最常犯的错误。
-我写完一句话以后，我找出这一句话的主语。
-我找不到主语的时候，我把主语补上去。
+## Z1. Write the subject of every sentence, including 我
 
-- 不合格：跑完了。
-- 合格：我跑完了这一轮扫描任务。
+Chinese allows a speaker to drop the subject. That is why a dropped subject is
+the most frequent failure in Chinese agent output. Find the subject of each
+sentence you wrote. Write the subject in when no subject exists.
 
-通用原则 R1 已经要求我写出动作的每一个成分。
-主语是动作成分里的一项。
-中文单独列出 Z1，原因是中文省略主语的现象比英文严重得多。
+- Not acceptable: `跑完了。`
+- Acceptable: `我跑完了这一轮扫描任务。`
 
-## Z2 我宣布我下一步的动作，用「让我……来……」的完整形式
+Cross-language rule R1 already asks for every argument of the action, and the
+subject is one of those arguments. Chinese states the rule again as Z1,
+because Chinese loses the subject far more often than English does.
 
-我不用省略主语的短语宣布我的动作。
-我也不用祈使句宣布我的动作，因为祈使句是命令读者做事，不是我自己做事。
+## Z2. Announce your own next action with the full form 「让我……来……」
 
-- 不合格：先写扫描脚本。
-- 不合格：跑一下。
-- 合格：让我先来写一份扫描脚本。
-- 合格：让我来跑一下上述两个任务。
+Do not announce your action with a phrase that has no subject. Do not announce
+your action with an imperative sentence. An imperative sentence orders the
+reader to act, and you are the one who acts.
 
-## Z3 数词和量词不能省
+- Not acceptable: `先写扫描脚本。`
+- Not acceptable: `跑一下。`
+- Acceptable: `让我先来写一份扫描脚本。`
+- Acceptable: `让我来跑一下上述两个任务。`
 
-我写一个名词的时候，我写出这个名词的数量和量词。
-我省掉数词和量词以后，句子就变成电报体，读者读起来费力。
+## Z3. Never drop the numeral and the measure word
 
-- 不合格：我写扫描脚本。
-- 合格：我写一份扫描脚本。
-- 不合格：我改了配置。
-- 合格：我改了这一项配置。
+Write the quantity and the measure word in front of a noun. Text without them
+turns into telegraphic register, and the reader has to work harder.
 
-## Z4 我指向前文的时候，我写「上述」或者「前面提到的」
+- Not acceptable: `我写扫描脚本。`
+- Acceptable: `我写一份扫描脚本。`
+- Not acceptable: `我改了配置。`
+- Acceptable: `我改了这一项配置。`
 
-指示代词只能指向同一句话里已经写出来的名词。
-我要指向前一句话里的名词的时候，我重复这个名词，并且在名词前面加上「上述」或者「前面提到的」。
+## Z4. Use 「上述」 or 「前面提到的」 to point at earlier text
 
-- 不合格：我跑一下这两个任务。（「这」指向了前一句话）
-- 合格：我跑一下上述两个任务。
-- 合格：`ivy` 和 `joseph` 这两个名字对应的任务仍然在排队。（「这」指向同一句话里的 `ivy` 和 `joseph`，所以合格）
+A demonstrative may point only at a noun written in the same sentence. To
+point at a noun in an earlier sentence, repeat the noun and put 「上述」 or
+「前面提到的」 in front of the repeated noun.
 
-## Z5 我不用口语里的压缩说法
+- Not acceptable: `我跑一下这两个任务。` (「这」 reaches back to the previous sentence)
+- Acceptable: `我跑一下上述两个任务。`
+- Acceptable: `ivy 和 joseph 这两个名字对应的任务仍然在排队。` (「这」 points at
+  `ivy` and `joseph` inside the same sentence, so the sentence is acceptable)
 
-口语的压缩说法藏起了动作和对象。
-我把压缩说法改写成字面描述。
+## Z5. Do not use compressed colloquial speech
 
-| 压缩说法 | 字面描述 |
+Colloquial compression hides the action and the object. Rewrite the
+compression as a literal description.
+
+| Compressed | Literal description |
 | --- | --- |
 | 没轮到 ivy | `ivy` 这个名字对应的任务还未排到队首 |
 | 搞定了 | 我已经改完了这一处代码，并且验证脚本报告通过 |
@@ -59,44 +64,51 @@
 | 接上了 | 我已经把这一个钩子挂到 `bun install` 上 |
 | 跑完了 | 我跑完了这一轮扫描任务 |
 
-## Z6 有中文说法的词，我就用中文词
+## Z6. Use the Chinese word when a Chinese word exists
 
-会话、提示词、任务、模式、字段，这些词都有现成的中文说法，所以我写中文词。
-代码里的标识符保持原样，例如 `responseSchema`、`item_id`、`--links`。
-同一个东西在同一次回复里只有一个名字，我不在「提示词」和 `prompt` 之间来回换。
+Words such as 会话, 提示词, 任务, 模式 and 字段 all have ordinary Chinese
+forms, so write the Chinese form. Keep code identifiers unchanged, for example
+`responseSchema`, `item_id` and `--links`.
 
-## Z7 我用「了」「将」「已」「可以」写清楚时态
+One thing carries one name inside one reply. Never alternate between 提示词
+and `prompt`.
 
-中文动词本身不带时态，所以我必须写出时态标记。
-我表示动作已经完成的时候，我写「已经……了」。
-我表示动作还没有开始的时候，我写「我将要」或者「我接下来要」。
-我表示一种可能性的时候，我写「可以」或者「有可能」。
+## Z7. Mark tense with 了, 将, 已 and 可以
 
-- 不合格：我改这一个字段。
-- 合格：我已经改完了这一个字段。
-- 合格：我接下来要改这一个字段。
+A Chinese verb carries no tense of its own, so you have to write the tense
+marker. Write 「已经……了」 for a finished action. Write 「我将要」 or
+「我接下来要」 for an action that has not started. Write 「可以」 or
+「有可能」 for a possibility.
 
-## Z8 说明句不超过 40 个字，每一段不超过 6 句
+- Not acceptable: `我改这一个字段。`
+- Acceptable: `我已经改完了这一个字段。`
+- Acceptable: `我接下来要改这一个字段。`
 
-我数出最长的一句话的字数。
-最长的一句话超过 40 个字的时候，我在分句处切开。
-我给切开以后的每一句话补上主语。
-我数出最长的一段的句数。
-最长的一段超过 6 句的时候，我另起一段。
-我不用删掉动作成分的办法缩短句子。
+## Z8. Keep a sentence under 40 characters and a paragraph under 6 sentences
 
-## Z9 中文附加检查步骤
+Count the characters of the longest sentence. Split that sentence at a clause
+boundary when the count is over 40 characters. Give every new sentence its own
+subject. Count the sentences of the longest paragraph. Start a new paragraph
+when the count is over 6 sentences. Never shorten a sentence by deleting an
+argument of the verb.
 
-我执行完 `SKILL.md` 第 4 节的十个通用步骤以后，我再执行下面这五个步骤。
+## Z9. Extra check steps for Chinese
 
-1. 我逐句找主语。我找不到主语的一句话，我补上主语。
-2. 我找出每一个宣布我下一步动作的短语。我把短语改写成「让我……来……」的完整句子。
-3. 我找出每一个名词。我给这个名词补上数词和量词。
-4. 我找出每一个指示代词。指示代词指向的名词不在同一句话里的时候，我改写成「上述 + 名词」。
-5. 我找出每一个口语压缩说法。我把压缩说法改写成字面描述。
+Run the ten steps in section 4 of `../../SKILL.md` first. Then run these five
+steps.
 
-## Z10 验收用例
+1. Read each sentence and find the subject. Write the subject in when the
+   sentence has none.
+2. Find every phrase that announces your next action. Rewrite each phrase as a
+   full 「让我……来……」 sentence.
+3. Find every noun. Add the numeral and the measure word.
+4. Find every demonstrative. Rewrite it as 「上述」 plus the repeated noun when
+   the noun it points at sits in an earlier sentence.
+5. Find every colloquial compression. Rewrite each one as a literal
+   description.
 
-`ACCEPTANCE-CASES.md` 保存了用户亲手写下的四条修改意见。
-上述四条修改意见是中文部分的验收标准。
-我改动本文件以后，我先拿改动后的本文件对照上述四条修改意见检查一遍。
+## Z10. Acceptance cases
+
+`ACCEPTANCE-CASES.md` holds four corrections that the user wrote by hand.
+Those four corrections are the acceptance standard for Chinese. Check every
+change to this file against those four corrections first.

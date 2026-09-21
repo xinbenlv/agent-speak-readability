@@ -1,10 +1,24 @@
-# 给全局 `~/.claude/CLAUDE.md` 的替换建议
+# A suggested replacement for the language section of a global CLAUDE.md
 
-本文件建议用户替换掉全局 `~/.claude/CLAUDE.md` 里的「与用户交流的语言的原则」一节。
-我没有改动用户的全局文件，原因是用户自己的规则要求我先取得明确的手动批准。
-用户读完本文件以后，用户自己决定要不要粘贴下面这一段。
+This file suggests a replacement for the writing rules inside a global
+`~/.claude/CLAUDE.md`. This repository does not edit that global file. The
+owner's own rule requires explicit manual approval before any change to a
+global `AGENTS.md` or `CLAUDE.md`. Read this file and paste the replacement
+yourself.
 
-## 建议粘贴的新内容
+## The English version
+
+```markdown
+## Rules for writing to the user
+- Read the agent-speak-readability skill before you write any prose a human reads.
+- Read lang/en/ for English output. Read lang/zh/ for Chinese output.
+- Run the pre-send check in section 4 of that skill before you send the text.
+  Perform the check as edits, not as a judgement.
+- When the user says the text was hard to understand, run the check again and
+  send the rewritten text. Do not explain and do not apologise.
+```
+
+## The Chinese version, for a global file written in Chinese
 
 ```markdown
 ## 与用户交流的语言的原则
@@ -14,50 +28,57 @@
 - 用户说「看不懂」的时候，我重新执行上述发送前检查，我直接发出改写后的文字，我不解释也不道歉。
 ```
 
-## 我为什么建议这样改
+## Why the replacement is shorter
 
-### 一、旧的一节太长，可是长度并没有换来效果
+### 1. The old section was long, and the length bought nothing
 
-旧的一节有十三条规则。
-模型每一次会话都无条件把旧的一节读进上下文。
-在真实会话里，模型读完旧的一节以后，模型在下一条回复里仍然违反了七次。
-规则的条数不是问题，规则的形式才是问题。
+The old section held thirteen rules. An agent read the whole section into the
+context of every session without any condition. In one real session the agent
+read the section, the user repeated the requirement inside the prompt, and the
+agent still broke the rules seven times in the very next reply.
 
-### 二、动作约束能保持，风格约束会漂移
+The count of the rules was never the problem. The form of the rules was the
+problem.
 
-同一个文件里的动作约束（例如「没有用户要求就不许提交」）在一次长会话里保持了好几个小时。
-同一个文件里的写作约束在一两轮之内就漂回了模型的默认语气。
-所以新的一节只写「我要做哪几个动作」，新的一节不写「我要写得清楚」。
-`检查` 可以核对，`写得清楚` 无法核对。
+### 2. Action constraints survive. Style constraints drift
 
-### 三、全局文件只留触发条件，规则本身放进技能
+Action constraints from the same file held for hours. One example is the rule
+"never commit unless the user asks". The writing rules in the same file
+drifted back to the default voice of the model within one or two turns.
 
-用户自己的原则说：`AGENTS.md` 里只放会改变模型在任意一次会话里行为的全局约束。
-「加载技能」和「执行检查」这两件事符合上述原则。
-十三条规则的细节属于条件触发的内容，所以十三条规则应该待在技能文件里。
+So the new section lists the actions to perform. The new section does not ask
+for clear writing. An agent can check an action. An agent cannot check a
+quality.
 
-## 旧规则去了哪里
+### 3. A global file holds the trigger. A skill holds the rules
 
-| 旧规则 | 新位置 |
+The owner's own principle says that `AGENTS.md` holds only the constraints
+that change agent behaviour in any session. "Load the skill" and "run the
+check" both meet that test. The detail of the thirteen rules is conditional
+material, so the detail belongs inside the skill.
+
+## Where each old rule went
+
+| Old rule | New location |
 | --- | --- |
-| 英文 ASD-STE100 各项 | `lang/en/PRINCIPLES.md` 的 E1 到 E5 |
-| 主动语态 | `SKILL.md` 的 R7 |
-| 每句话写出主语 | `lang/zh/PRINCIPLES.md` 的 Z1 |
-| 不用代词指代上文 | `SKILL.md` 的 R3，中文写法见 Z4 |
-| 不省略成分 | `SKILL.md` 的 R1，并且升级成了主规则 |
-| 一物一名 | `SKILL.md` 的 R5 |
-| 不造新词不用比喻 | `SKILL.md` 的 R6 |
-| 长度上限 | `SKILL.md` 的 R9，中文数值见 Z8，英文数值见 E3 |
-| 有中文说法就用中文 | `lang/zh/PRINCIPLES.md` 的 Z6 |
-| 时态标记 | `lang/zh/PRINCIPLES.md` 的 Z7 |
+| The ASD-STE100 items for English | `lang/en/PRINCIPLES.md`, E1 to E5 |
+| Active voice | `SKILL.md`, R7 |
+| Write the subject of every sentence | `lang/zh/PRINCIPLES.md`, Z1 |
+| No pronoun pointing at earlier text | `SKILL.md` R3, and Z4 for Chinese |
+| Do not drop any element | `SKILL.md` R1, promoted to the master rule |
+| One thing, one name | `SKILL.md`, R5 |
+| No invented words and no metaphors | `SKILL.md`, R6 |
+| Length caps | `SKILL.md` R9, with the numbers in Z8 and E3 |
+| Use the Chinese word when one exists | `lang/zh/PRINCIPLES.md`, Z6 |
+| Tense markers | `lang/zh/PRINCIPLES.md`, Z7 |
 
-## 新增的规则
+## What the replacement adds
 
-| 新规则 | 位置 | 来源 |
+| New rule | Location | Source |
 | --- | --- | --- |
-| 宣布自己下一步的动作要写完整句 | R2，中文形式见 Z2 | 真实会话里的短片段失败 |
-| 标识符后面补类别词 | R4 | 用户的第三条修改意见 |
-| 不用口语压缩说法 | R8，中文例子见 Z5 | 用户的第三条修改意见 |
-| 数词和量词不能省 | Z3 | 用户的第一条修改意见 |
-| 指向前文写「上述」 | Z4 | 用户的第二条修改意见 |
-| 发送前检查 | `SKILL.md` 第 4 节 | 风格约束会漂移这一个结论 |
+| Announce your next action as a full sentence | R2, and Z2 for Chinese | the short-fragment failures in a real session |
+| Add a category word after an identifier | R4 | correction 3 from the user |
+| Do not use compressed colloquial speech | R8, with Chinese examples in Z5 | correction 3 from the user |
+| Never drop the numeral and the measure word | Z3 | correction 1 from the user |
+| Use 「上述」 to point at earlier text | Z4 | correction 2 from the user |
+| The pre-send check | `SKILL.md`, section 4 | the finding that style constraints drift |

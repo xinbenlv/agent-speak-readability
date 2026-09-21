@@ -1,41 +1,47 @@
-# 中文反面样本（来自真实会话）
+# Chinese negative samples, taken from a real session
 
-下面这些句子都是模型在一次真实会话里写出来的。
-用户读上述句子的时候感到费力。
-我拿上述句子当反面样本，我不写出同样的句子。
+A model wrote every sentence below during one real working session. The reader
+found all of them hard to understand. Treat the sentences as negative samples
+and do not write anything like them.
 
-## 一、省略主语
+## 1. The subject is missing
 
 `跑完了`　`改完之后密度一点没动`　`查了一遍`　`接上了`　`验证通过`
 `先看 sources 的当前定义`　`顺带发现一个小问题`　`看扫描进度`
 
-上述八个句子里，`改完之后密度一点没动` 破坏性最强。
-`改完之后密度一点没动` 只有九个字，这九个字里却藏着两个执行者。
-第一个执行者是模型，模型改了这一份提示词。
-第二个执行者是被测模型，被测模型产出了密度数值。
-`改完之后密度一点没动` 一个执行者都没有写出来。
-合格的写法是两句话：`我改完了这一份提示词。被测模型产出的密度数值和改动之前完全一样。`
+Among those eight samples, `改完之后密度一点没动` does the most damage. The
+sample runs to nine characters, and two different actors hide inside those
+nine characters. The first actor is the agent, and the agent edited the
+prompt. The second actor is the model under test, and that model produced the
+density value. The sample names neither actor.
 
-## 二、造新词、用比喻、用双关
+An acceptable version takes two sentences:
+`我改完了这一份提示词。被测模型产出的密度数值和改动之前完全一样。`
+
+## 2. Invented words, metaphors and puns
 
 `挤气球`　`墓志铭`　`租一台推土机来种花`　`幻觉工厂`　`气球一定往那边鼓`
 
-上述五个说法都有现成的字面说法，所以我写字面说法。
-例如 `挤气球` 的字面说法是 `我压低一个指标以后，另一个指标就升高`。
+A literal phrase already exists for every one of those five, so write the
+literal phrase. The literal reading of `挤气球`, for example, is
+`我压低一个指标以后，另一个指标就升高`.
 
-## 三、同一个东西在同一篇里换了好几个名字
+## 3. One thing carrying several names in one document
 
-- `提示词` 和 `prompt`
-- `复核` 和 `审阅` 和 `QA reviewer`
-- `死链` 和 `dead link`
+- `提示词` and `prompt`
+- `复核`, `审阅` and `QA reviewer`
+- `死链` and `dead link`
 
-我在一次回复的开头就选定一个名字，我全篇只用这一个名字。
+Choose one name at the start of a reply. Use that one name for the whole
+reply.
 
-## 四、短的连接性片段
+## 4. Short connective fragments
 
 `先写扫描脚本。`　`看扫描进度。`　`跑一下`
 
-上述三个片段都是模型在宣布自己下一步的动作。
-上述三个片段是英文习惯 `Now let me check the scan.` 的压缩译法。
-完整的句子反而没有出现同样的错误。
-所以正确的做法是禁掉上述这一类片段，不是在上述这一类片段上写得更用心。
+All three fragments announce the next action of the model. All three are
+compressed renderings of the English habit `Now let me check the scan.`
+
+Full sentences did not produce the same failure. So the correct repair bans
+the fragment register. The correct repair does not try harder inside the
+fragment register.
